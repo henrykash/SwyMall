@@ -192,7 +192,7 @@ public class Utils {
     }
 
     //create method to add to cart
-    public static void addToCart(Context context, GroceryItem item) {
+    public static void addItemToCart(Context context, GroceryItem item) {
         //initialize the shared preferences
         SharedPreferences sharedPreferences = context.getSharedPreferences(DB_NAME, Context.MODE_PRIVATE);
         ArrayList<GroceryItem> cartItems = gson.fromJson(sharedPreferences.getString(CART_ITEMS_KEY, null), groceryListType);
@@ -301,6 +301,24 @@ public class Utils {
             return items;
         }
         return null;
+    }
+
+    public static void deleteItemFromCart(Context context, GroceryItem item) {
+        ArrayList<GroceryItem> cartItems = getCartItems(context);
+        if (null != cartItems) {
+            ArrayList<GroceryItem> newItems = new ArrayList<>();
+            for (GroceryItem i: cartItems) {
+                if (i.getId() != item.getId()) {
+                    newItems.add(i);
+                }
+            }
+
+            SharedPreferences sharedPreferences = context.getSharedPreferences(DB_NAME, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.remove(CART_ITEMS_KEY);
+            editor.putString(CART_ITEMS_KEY, gson.toJson(newItems));
+            editor.commit();
+        }
     }
 
     //create a getter for the ID as was first initialized to 0 this method auto generates the IDs for our views

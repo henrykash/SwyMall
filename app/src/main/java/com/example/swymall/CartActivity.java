@@ -26,6 +26,10 @@ public class CartActivity extends AppCompatActivity {
         initBottomNavView();
         setSupportActionBar(toolbar);
 
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, new FirstCartFragment());
+        transaction.commit();
+
     }
 
         private void initBottomNavView () {

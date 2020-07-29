@@ -136,6 +136,9 @@ public class MainFragment extends Fragment {
                         Toast.makeText(getActivity(), "Selected", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.cart:
+                        Intent cartIntent = new Intent(getActivity(), CartActivity.class);
+                        cartIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(cartIntent);
                         break;
                     case R.id.search:
                         Intent intent = new Intent(getActivity(), SearchActivity.class);
