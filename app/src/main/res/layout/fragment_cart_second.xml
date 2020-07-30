@@ -2,13 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="25dp">
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/txtAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:text="Address:"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtAddress"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="-15dp"
         android:hint="Address"
         android:lines="2" />
 
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edtTxtAddress"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="Zip code:"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtZipCode"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:hint="Zip Code" />
 
     <TextView
@@ -55,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtPhoneNumber"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:hint="Phone Number" />
 
     <TextView
@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edtTxtPhoneNumber"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="Email:"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -73,7 +73,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtEmail"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:hint="Email" />
 
     <LinearLayout
@@ -82,14 +82,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="10dp"
             android:text="Back" />
 
         <Button

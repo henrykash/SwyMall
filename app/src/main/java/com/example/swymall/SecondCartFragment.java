@@ -16,7 +16,9 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.swymall.Models.GroceryItem;
 import com.example.swymall.Models.Order;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class SecondCartFragment extends Fragment {
@@ -34,6 +36,21 @@ public class SecondCartFragment extends Fragment {
 
         initViews(view);
 
+        Bundle bundle = getArguments();
+        if (null != bundle) {
+            String jsonOrder = bundle.getString(ORDER_KEY);
+            if (null != jsonOrder) {
+                Gson gson = new Gson();
+                Type type = new TypeToken<Order>() {}.getType();
+                Order order = gson.fromJson(jsonOrder, type);
+                if (null != order) {
+                    edtTxtAddress.setText(order.getAddress());
+                    edtTxtPhoneNumber.setText(order.getPhoneNumber());
+                    edtTxtZipCode.setText(order.getZipCode());
+                    edtTxtEmail.setText(order.getEmail());
+                }
+            }
+        }
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +82,11 @@ public class SecondCartFragment extends Fragment {
                         Bundle bundle = new Bundle();
                         bundle.putString(ORDER_KEY, jsonOrder);
 
+                        ThirdCartFragment thirdCartFragment = new ThirdCartFragment();
+                        thirdCartFragment.setArguments(bundle);
+                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.container, thirdCartFragment);
+                        transaction.commit();
                     }
 
                 }else {
