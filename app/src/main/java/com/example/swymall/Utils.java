@@ -16,6 +16,7 @@ import java.util.ArrayList;
 //inside this class we can now create our data source
 public class Utils {
     private static int ID = 0;
+    private static int ORDER_ID = 0;
 
     private static final String DB_NAME = "fake_database";
 
@@ -326,5 +327,10 @@ public class Utils {
         //increase the value of the id
         ID++;
         return ID;
+    }
+
+    public static int getOrderId() {
+        ORDER_ID++;
+        return ORDER_ID;
     }
 }

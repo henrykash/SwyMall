@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".CartActivity"></activity>
-        <activity android:name=".SearchActivity" />
+        <activity android:name=".SearchActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize"/>
         <activity android:name=".GroceryItemActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
